@@ -1,6 +1,22 @@
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/antonio150/UploadImageBundle.git"
-    }
-]
+{
+    "name": "antonio150/upload-image-bundle",
+    "description": "Un bundle Symfony pour l'upload d'images",
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-4": {
+            "UploadImageBundle\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/antonio150/upload-image-bundle.git"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "symfony/framework-bundle": "^7.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
