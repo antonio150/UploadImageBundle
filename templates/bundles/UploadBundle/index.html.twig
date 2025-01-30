@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Uploader une Image</h1>
+
+   <form method="post" enctype="multipart/form-data">
+        {{ form_start(form) }}
+            {{ form_row(form.image) }}
+            <button type="submit">Envoyer</button>
+        {{ form_end(form) }}
+    </form>
+
+
+    {% for message in app.flashes('success') %}
+        <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+
+    
+
+{% endblock %}
