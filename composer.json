@@ -18,6 +18,6 @@
         "symfony/framework-bundle": "^7.0",
         "antonio150/UploadImageBundle": "dev-main"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "main",
     "prefer-stable": true
 }
