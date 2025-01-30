@@ -1,5 +1,5 @@
 {
-    "name": "antonio150/UploadImageBundle",
+    "name": "antonio150/upload-image-bundle",
     "description": "Un bundle Symfony pour l'upload d'images",
     "type": "symfony-bundle",
     "autoload": {
