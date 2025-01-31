@@ -16,8 +16,8 @@
     "require": {
         "php": ">=8.1",
         "symfony/framework-bundle": "^5.0 || ^6.0 || ^7.0",
-        "antonio150/UploadImageBundle": "dev-main"
+        "antonio150/uploadimagebundle": "dev-main"
     },
-    "minimum-stability": "main",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

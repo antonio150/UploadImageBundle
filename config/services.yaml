@@ -1,0 +1,10 @@
+services:
+    UploadImageBundle\Service\ImageUploader:
+        arguments:
+            $uploadDir: '%kernel.project_dir%/public/uploads'
+
+    UploadImageBundle\Service\UploadImageService:
+        autowire: true
+        autoconfigure: true
+        public: true
+
