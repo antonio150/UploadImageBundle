@@ -23,7 +23,7 @@ return [
 ];
 ```
 
-Add to composer.json:
+Add to `composer.json`:
 
 ```json
 "repositories": [
@@ -80,6 +80,7 @@ To use the bundle, follow these steps:
 
     ```
 
-## License
+## Contact
 
-This bundle is released under the MIT License. See the bundled `LICENSE` file for details.
+Portfolio : [antonio navira](https://portfolio-navira.vercel.app/)
+
