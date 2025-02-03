@@ -13,6 +13,14 @@
             "url": "https://github.com/antonio150/UploadImageBundle.git"
         }
     ],
+    "scripts": {
+        "post-install-cmd": [
+            "php bin/console upload-image-bundle:install"
+        ],
+        "post-update-cmd": [
+            "php bin/console upload-image-bundle:install"
+        ]
+    },
     "require": {
         "php": ">=8.1",
         "symfony/framework-bundle": "^5.0 || ^6.0 || ^7.0"
