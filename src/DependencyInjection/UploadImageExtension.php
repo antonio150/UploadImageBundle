@@ -20,7 +20,7 @@ class UploadImageExtension extends Extension
         $container->setParameter('upload_image_bundle.images_dir', $config['images_dir']);
 
         // Charger les services
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../../resources/config'));
         $loader->load('services.yaml');
     }
 }
