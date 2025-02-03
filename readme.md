@@ -14,6 +14,12 @@ composer require antonio150/uploadimagebundle:dev-main
 
 ## Configuration
 
+Run commande to choose path to store file
+
+```bash
+symfony console upload-image-bundle:install
+```
+
 Add the bundle to your `config/bundles.php` file:
 
 ```php
@@ -23,64 +29,44 @@ return [
 ];
 ```
 
-Add to `composer.json`:
-
-```json
-"repositories": [
-    {
-    "type": "vcs",
-    "url": "https://github.com/antonio150/UploadImageBundle.git"
-    }
-],
-```
-
 ## Usage
 
 To use the bundle, follow these steps:
 
 1. **Edit your `controller` :**
+
    ```php
 
-    namespace App\Controller;
+        namespace App\Controller;
+        use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+        use Symfony\Component\HttpFoundation\Request;
+        use Symfony\Component\HttpFoundation\Response;
+        use Symfony\Component\Routing\Attribute\Route;
+        use UploadImageBundle\Service\FileUploader;
 
-    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-    use Symfony\Component\HttpFoundation\Request;
-    use Symfony\Component\HttpFoundation\Response;
-    use Symfony\Component\Routing\Attribute\Route;
-    use UploadImageBundle\Service\ImageUploader;
+        final class UploadimageController extends AbstractController{
 
-    final class UploadimageController extends AbstractController{
+            
+            #[Route('/uploadimage', name: 'app_uploadimage')]
+            public function upload(Request $request, FileUploader $fileUploader): Response
+            {
+                $file = $request->files->get('file'); // Récupérer le fichier depuis la requête
+                if (!$file) {
+                    return $this->json(['error' => 'Aucun fichier envoyé'], Response::HTTP_BAD_REQUEST);
+                }
 
-        private ImageUploader $uploadService; // ajouter
-
-        public function __construct(ImageUploader $uploadService) // ajouter
-        {
-            $this->uploadService = $uploadService;
-        }
-        #[Route('/uploadimage', name: 'app_uploadimage')]
-        public function index(Request $request): Response
-        {
-            $file = $request->files->get('image');
-
-            if ($file) {
-                $uploadResult = $this->uploadService->upload($file); // La façon de l'utiliser
-
-                return $this->json([
-                    'message' => 'Image uploadée avec succès',
-                    'fileName' => $uploadResult['fileName'],
-                    'absolutePath' => $uploadResult['absolutePath'],
-                    'publicUrl' => $request->getSchemeAndHttpHost() . $uploadResult['publicPath'],
-                ]); // exemple de sortie
+                try {
+                    $result = $fileUploader->upload($file);
+                    return $this->json($result);
+                } catch (\Exception $e) {
+                    return $this->json(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+                }
             }
 
-            return new Response("Aucune image envoyée.");
         }
 
-    }
-
-    ```
+   ```
 
 ## Contact
 
 Portfolio : [antonio navira](https://portfolio-navira.vercel.app/)
-
