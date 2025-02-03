@@ -34,6 +34,7 @@ class FileUploader
         $file->move($targetDir, $fileName);
 
         return [
+            'fileName' => $fileName,
             'absolute_path' => realpath($targetDir . '/' . $fileName),
             'public_path' => '/uploads/' . $fileName
         ];
