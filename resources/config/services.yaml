@@ -1,10 +1,11 @@
 services:
     UploadImageBundle\Service\FileUploader:
         arguments:
-            $documentsDir: '%upload_image_bundle.documents_dir%'
-            $videosDir: '%upload_image_bundle.videos_dir%'
-            $imagesDir: '%upload_image_bundle.images_dir%'
+            $params: '@parameter_bag'
+            $filesystem: '@filesystem'
 
+ 
+ 
     UploadImageBundle\Command\InstallUploadImageBundleCommand:
         arguments:
             $filesystem: '@filesystem'
