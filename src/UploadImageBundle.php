@@ -7,8 +7,9 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class UploadImageBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    protected function getContainerExtensionClass(): string
     {
-        parent::build($container);
+        return 'UploadImageBundle\DependencyInjection\UploadImageExtension'; // ✅ Vérifie bien le chemin
     }
+
 }
