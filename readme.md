@@ -20,7 +20,7 @@ Run commande to choose path to store file
 symfony console upload-image-bundle:install
 ```
 
-Add the bundle to your `config/bundles.php` file:
+Add the bundle to your if missing `config/bundles.php` file:
 
 ```php
 return [
