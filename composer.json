@@ -15,10 +15,10 @@
     ],
     "scripts": {
         "post-install-cmd": [
-            "php bin/console upload-image-bundle:install"
+            "@php ../bin/console upload-image-bundle:install"
         ],
         "post-update-cmd": [
-            "php bin/console upload-image-bundle:install"
+            "@php ../bin/console upload-image-bundle:install"
         ]
     },
     "require": {
