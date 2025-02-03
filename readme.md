@@ -31,9 +31,9 @@ return [
 
 ## Usage
 
-To use the bundle, follow these steps:
+To use the bundle
 
-1. **Edit your `controller` :**
+ **Edit your `controller` :**
 
    ```php
 
