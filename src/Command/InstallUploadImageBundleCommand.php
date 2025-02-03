@@ -46,7 +46,7 @@ class InstallUploadImageBundleCommand extends Command
         $configFilePath = $this->params->get('kernel.project_dir') . '/config/packages/upload_image_bundle.yaml';
 
         $newConfig = sprintf(
-            "upload_image_bundle:\n    documents_dir: '%s'\n    videos_dir: '%s'\n    images_dir: '%s'\n",
+            "upload_image:\n    documents_dir: '%s'\n    videos_dir: '%s'\n    images_dir: '%s'\n",
             $documentsDir, $videosDir, $imagesDir
         );
 
