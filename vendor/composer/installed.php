@@ -3,7 +3,7 @@
         'name' => 'antonio150/uploadimagebundle',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e55f21903ff38fe9c11d7689176d3dcc1915a915',
+        'reference' => 'c15aad8fb89b2d01fc1ab29506b62491a9773852',
         'type' => 'symfony-bundle',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'antonio150/uploadimagebundle' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e55f21903ff38fe9c11d7689176d3dcc1915a915',
+            'reference' => 'c15aad8fb89b2d01fc1ab29506b62491a9773852',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

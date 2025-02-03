@@ -5,4 +5,11 @@ services:
             $videosDir: '%upload_image_bundle.videos_dir%'
             $imagesDir: '%upload_image_bundle.images_dir%'
 
+    UploadImageBundle\Command\InstallUploadImageBundleCommand:
+        arguments:
+            $filesystem: '@filesystem'
+            $params: '@parameter_bag'
+        tags:
+            - { name: 'console.command' }
+
   
