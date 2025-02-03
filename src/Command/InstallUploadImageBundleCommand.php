@@ -2,6 +2,7 @@
 
 namespace UploadImageBundle\Command;
 
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;
@@ -9,27 +10,25 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
+#[AsCommand(name: 'upload-image-bundle:install', description: 'Installe et configure UploadImageBundle.')]
 class InstallUploadImageBundleCommand extends Command
 {
-    private $filesystem;
-    private $params;
+    private Filesystem $filesystem;
+    private ParameterBagInterface $params;
 
     public function __construct(Filesystem $filesystem, ParameterBagInterface $params)
     {
         parent::__construct();
-
         $this->filesystem = $filesystem;
         $this->params = $params;
     }
 
-    protected static $defaultName = 'upload-image-bundle:install';
-
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Installe et configure UploadImageBundle avec des emplacements personnalisés pour les fichiers.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
@@ -39,13 +38,12 @@ class InstallUploadImageBundleCommand extends Command
         $imagesDir = $io->ask('Veuillez entrer le dossier pour les images (JPG, PNG, GIF, etc.)', $this->params->get('upload_image_bundle.images_dir'));
 
         // Crée les dossiers si ils n'existent pas
-        $filesystem = new Filesystem();
-        $filesystem->mkdir($documentsDir);
-        $filesystem->mkdir($videosDir);
-        $filesystem->mkdir($imagesDir);
+        $this->filesystem->mkdir($documentsDir);
+        $this->filesystem->mkdir($videosDir);
+        $this->filesystem->mkdir($imagesDir);
 
         // Met à jour le fichier de configuration YAML
-        $configFilePath = __DIR__ . '/../../config/packages/upload_image_bundle.yaml';
+        $configFilePath = $this->params->get('kernel.project_dir') . '/config/packages/upload_image_bundle.yaml';
 
         $newConfig = sprintf(
             "upload_image_bundle:\n    documents_dir: '%s'\n    videos_dir: '%s'\n    images_dir: '%s'\n",
