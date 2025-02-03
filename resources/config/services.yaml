@@ -1,7 +1,8 @@
 services:
-    UploadImageBundle\Service\ImageUploader:
+    UploadImageBundle\Service\FileUploader:
         arguments:
-            $uploadDir: '%kernel.project_dir%/public/uploads'
-            $publicPath: '/uploads'
+            $documentsDir: '%upload_image_bundle.documents_dir%'
+            $videosDir: '%upload_image_bundle.videos_dir%'
+            $imagesDir: '%upload_image_bundle.images_dir%'
 
   

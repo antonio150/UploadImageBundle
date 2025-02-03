@@ -1,7 +1,0 @@
-services:
-    UploadImageBundle\Service\ImageUploader:
-        arguments:
-            $uploadDir: '%kernel.project_dir%/public/uploads'
-
-    
-
