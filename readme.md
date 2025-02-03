@@ -56,7 +56,7 @@ To use the bundle
                 }
 
                 try {
-                    $result = $fileUploader->upload($file);
+                    $result = $fileUploader->upload($file); // To get path and file name
                     return $this->json($result);
                 } catch (\Exception $e) {
                     return $this->json(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
