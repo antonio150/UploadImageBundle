@@ -13,16 +13,7 @@
             "url": "https://github.com/antonio150/UploadImageBundle.git"
         }
     ],
-    "scripts": {
-        "post-install-cmd": [
-            "@php bin/console upload-image-bundle:install",
-            "@php -r \"echo '\\n\\033[1;32mInstallation terminée ! 🎉\\nTapez la commande suivante pour configurer les emplacements de stockage :\\n\\033[1;33mphp bin/console upload-image-bundle:install\\033[0m\\n\\n';\""
-        ],
-        "post-update-cmd": [
-            "@php bin/console upload-image-bundle:install",
-            "@php -r \"echo '\\n\\033[1;32mMise à jour terminée ! 🎉\\nSi nécessaire, reconfigurez les emplacements de stockage avec :\\n\\033[1;33mphp bin/console upload-image-bundle:install\\033[0m\\n\\n';\""
-        ]
-    },
+    
     "require": {
         "php": ">=8.1",
         "symfony/framework-bundle": "^5.0 || ^6.0 || ^7.0"
