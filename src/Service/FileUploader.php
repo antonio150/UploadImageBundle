@@ -17,7 +17,7 @@ class FileUploader
         $this->imagesDir = $imagesDir;
     }
 
-    public function upload(UploadedFile $file): string
+    public function upload(UploadedFile $file): array
     {
         $extension = strtolower($file->guessExtension());
         $fileName = uniqid() . '.' . $extension;
@@ -40,6 +40,9 @@ class FileUploader
 
         $file->move($uploadDir, $fileName);
 
-        return $uploadDir . '/' . $fileName;
+        return [
+            'fileName' => $fileName,
+            'absolutePath' => $uploadDir . '/' . $fileName
+        ];
     }
 }
