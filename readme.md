@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The `UploadImageBundle` is a Symfony bundle that provides an easy way to upload and manage images in your Symfony application.
+The `UploadImageBundle` is a Symfony bundle that provides an easy way to upload and manage files in your Symfony application.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Run commande to choose path to store file
 symfony console upload-image-bundle:install
 ```
 
-Add the bundle to your if missing `config/bundles.php` file:
+Add the bundle to your `config/bundles.php` file if missing:
 
 ```php
 return [
