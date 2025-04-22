@@ -38,13 +38,15 @@ class FileUploader
         // Calculer le chemin relatif pour public_path
         $projectDir = realpath($this->params->get('kernel.project_dir') . '/public');
         $absoluteTargetDir = realpath($targetDir);
-        $relativePath = str_replace($projectDir, '', $absoluteTargetDir) . '/' . $fileName;
-        $publicPath = str_replace('\\', '/', $relativePath);
+        $relativeDir = str_replace($projectDir, '', $absoluteTargetDir);
+        $publicDir = str_replace('\\', '/', $relativeDir); // Chemin public du dossier
+        $publicPath = $publicDir . '/' . $fileName;
 
         return [
             'fileName' => $fileName,
             'absolute_path' => realpath($targetDir . '/' . $fileName),
-            'public_path' => $publicPath
+            'public_path' => $publicPath,
+            'public_dir' => $publicDir
         ];
     }
 
