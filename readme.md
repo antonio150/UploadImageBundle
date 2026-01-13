@@ -66,6 +66,13 @@ To use the bundle
         }
 
    ```
+Voici exemple de résultat
+```
+  "fileName" => "696646055d19e.jpg"
+  "absolute_path" => "E:\Mes Projets\piasako2\public\uploads\images\696646055d19e.jpg"
+  "public_path" => "/uploads/images/696646055d19e.jpg"
+  "public_dir" => "/uploads/images"
+```
 
 ## Contact
 
